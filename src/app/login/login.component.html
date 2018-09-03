@@ -1,0 +1,33 @@
+<mat-toolbar md-dialog-title color="primary">
+  Login
+  <span class="flex-spacer"></span>
+  <button md-button md-dialog-close>&times;</button>
+</mat-toolbar>
+<form novalidate (ngSubmit)="onSubmit()">
+
+  <mat-dialog-content>
+    <p>
+        <mat-form-field >
+        <input matInput placeholder="Username" type="text" [(ngModel)]="user.username" name="username" #username="ngModel" required>
+        <mat-hint>
+          <span [hidden]="username.pristine">
+          <span [hidden]="!username.errors?.required">username is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password" #password="ngModel" required>
+        <mat-hint>
+          <span [hidden]="password.pristine">
+          <span [hidden]="!password.errors?.required">password is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+   </p>
+ </mat-dialog-content>
+  <mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button md-button md-dialog-close>Cancel</button>
+    <button type="submit" md-button class="background-primary text-floral-white" >Login</button>
+  </mat-dialog-actions>
+</form>
